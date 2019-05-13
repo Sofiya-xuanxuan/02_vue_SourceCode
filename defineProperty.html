@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应式原理object.defineProperty</title>
+</head>
+<body>
+    <div id="app">
+        <p>你好，<span id="name"></span></p>
+    </div>
+    <script>
+       var  obj={};
+       Object.defineProperty(obj,'name',{
+           get(){
+               console.log('读取了obj中的name');
+               return document.querySelector('#name').innerHTML;
+           },
+           set(newVal){
+               console.log('更改了obj中的name');
+               document.querySelector('#name').innerHTML=newVal;
+           }
+       })
+       obj.name='sofiya'
+       console.log(obj.name);
+    </script>
+</body>
+</html>
